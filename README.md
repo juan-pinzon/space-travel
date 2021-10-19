@@ -4,6 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Dummy server
 
 cd server
+
 npx json-server --watch index.json
 
 ## Development server
