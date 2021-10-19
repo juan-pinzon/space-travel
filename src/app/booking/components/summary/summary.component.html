@@ -1,0 +1,8 @@
+<ng-template *ngIf="(bookings$ | async) as bookings">
+  {{bookings | json}}
+  <ng-template *ngFor="let booking of bookings">
+    <pre>
+      {{booking | json}}
+    </pre>
+  </ng-template>
+</ng-template>

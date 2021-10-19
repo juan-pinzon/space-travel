@@ -1,0 +1,51 @@
+<h1>Bienvenido a Space Travel</h1>
+<h3>Haz tu reserva para un viaje estelar</h3>
+<form class="form-booking" [formGroup]="form" (ngSubmit)="saveBooking($event)">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-3">
+      <mat-form-field appearance="fill">
+        <mat-label>¿A dónde vas?</mat-label>
+        <mat-select formControlName="destination" name="destination">
+          <mat-option *ngFor="let location of locations" [value]="location.code">
+            {{location.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="destinationField?.hasError('required') && destinationField?.touched">El destino es requerido</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3">
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Llegada</mat-label>
+        <input matInput formControlName="arrivalDate" [matDatepicker]="picker1">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="arrivalDateField?.hasError('required') && arrivalDateField?.touched">La fecha de llegada es requerida</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3">
+      <mat-form-field color="accent" appearance="fill">
+        <mat-label>Salida</mat-label>
+        <input matInput formControlName="departureDate" [matDatepicker]="picker2">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-error *ngIf="departureDateField?.hasError('required') && departureDateField?.touched">La fecha de salida es requerida</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Pasajeros</mat-label>
+        <mat-select formControlName="passengers" name="passenger">
+          <mat-option *ngFor="let passenger of passengers" [value]="passenger">
+            {{passenger}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="passengersField?.hasError('required') && passengersField?.touched">La cantidad de pasajeros es requerida</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2">
+      <button type="submit" mat-raised-button>Reservar</button>
+    </div>
+  </div>
+</form>

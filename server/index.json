@@ -1,0 +1,7 @@
+{
+  "locations": [
+    {"id":  1, "code":  "MAR", "name":  "Marte"},
+    {"id":  2, "code":  "SAT", "name":  "Saturno"},
+    {"id":  2, "code":  "NEP", "name":  "Neptuno"}
+  ]
+}
